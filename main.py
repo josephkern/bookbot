@@ -1,5 +1,7 @@
 from stats import word_count, character_count, char_count_report
 
+import sys
+
 def get_book_text(filepath):
     with open(filepath) as f:
         file_content = f.read()
@@ -7,8 +9,15 @@ def get_book_text(filepath):
 
 def main():
     
-    book = "books/frankenstein.txt"
+    # System Arguments
+    if len(sys.argv) < 2:
+        print("Usage: python3 main.py <path_to_book_>")
+        sys.exit(1)
+    else:
+        book = sys.argv[1]
 
+    #book = "books/frankenstein.txt"
+    
     raw_text = get_book_text(book)
     #print(f'{raw_text}')
     #Print Title
